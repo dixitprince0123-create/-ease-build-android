@@ -1,0 +1,46 @@
+EASE BUILD — ZERO-BUDGET BUILD & LAUNCH GUIDE
+================================================
+
+WHAT IS READY
+- Existing website bundled in the Android WebView project.
+- App icon in the website's navy/orange/white visual style.
+- GitHub Actions workflow at .github/workflows/build-apk.yml to build a debug APK in the cloud.
+- A free-first plan for the business app.
+
+A. BUILD APK WITHOUT INSTALLING ANDROID STUDIO (using computer or phone browser)
+1. Sign in/create a GitHub account at https://github.com
+2. Create a NEW PUBLIC repository named ease-build-android (public repositories use standard GitHub Actions runners free under GitHub's current policy).
+3. Upload the CONTENTS of this project folder to the repository root. Make sure settings.gradle and app/ are at the root, and .github/workflows/build-apk.yml is present.
+4. Open the repository's Actions tab. Select "Build Ease Build APK", then "Run workflow" if it did not run automatically.
+5. Wait until the workflow turns green.
+6. Open the completed workflow run, scroll to Artifacts, and download "EaseBuild-debug-APK".
+7. Extract the artifact ZIP and find app-debug.apk. Transfer it to your Android phone and install it. Android may ask you to allow installs from that browser/files app.
+Security note: A public repository exposes source code. Do not upload passwords, API keys, customer data, or secrets. This current source has no secret credentials.
+
+B. GOOGLE PLAY STORE
+- You can prepare the app listing for free, but publishing is not completely zero-cost: Google currently requires a US$25 one-time Play Console registration fee. See https://support.google.com/googleplay/android-developer/answer/6112435
+- The debug APK from the workflow is for testing, not Play Store release. Play Store submission needs a signed release Android App Bundle (AAB), developer verification, privacy policy, store graphics, content declarations, and compliance with the current target API/testing requirements.
+- Do not share signing keys or passwords in chat or public repositories.
+
+C. COMPLETE BUSINESS APP — PHASED FREE-FIRST MVP
+Phase 1 (MVP):
+- Customer enquiry form: name, phone, district, service, budget, notes.
+- Categories: construction materials, labour/contractor booking, full home construction, 2D/3D house plans.
+- Admin view for enquiries, statuses (new/contacted/quoted/closed), and quote notes.
+- Cost calculator marked as an estimate.
+- English/Hindi interface.
+Phase 2:
+- User accounts (email/social sign-in), order tracking, supplier catalogue, uploaded plan files.
+- Firebase Spark can offer no-cost quotas for several services, but quotas and product eligibility vary. Phone OTP can incur charges; avoid phone OTP in a strict ₹0 launch.
+- Online payments should only be added after business verification and payment provider approval; payment gateway transaction fees may apply.
+Phase 3:
+- Supplier/contractor verification, live stock/rates, invoices, delivery tracking, refunds, analytics, backup and privacy/security review.
+
+IMPORTANT LIMITATION
+The current app is a WebView shell around the website. It does NOT yet have a real server database, login, order processing, live supplier inventory, admin dashboard, or payment gateway. The enquiry forms in the current site do not save submissions centrally. Do not advertise these as working until implemented and tested.
+
+FREE-FIRST LINKS
+GitHub: https://github.com
+GitHub Actions docs: https://docs.github.com/en/actions
+Firebase no-cost plan: https://firebase.google.com/pricing
+Google Play registration: https://support.google.com/googleplay/android-developer/answer/6112435
